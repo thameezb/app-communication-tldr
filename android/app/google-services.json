@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "117755797957",
+    "project_id": "communication-tldr",
+    "storage_bucket": "communication-tldr.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:117755797957:android:1bf6be87919ed8149cabac",
+        "android_client_info": {
+          "package_name": "com.thameezbo.app_communication_tldr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "117755797957-r7o7evuqnhlesnqtffmaa0gmp72ep6tu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwxlEMVrtb_oHOhcqy3dwfwV9iDo8X9kA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "117755797957-r7o7evuqnhlesnqtffmaa0gmp72ep6tu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
