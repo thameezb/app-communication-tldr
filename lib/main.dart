@@ -38,11 +38,11 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   bool currentState = false;
-  final functions = FirebaseFunctions.instance;
+  final _firebaseFunctions = FirebaseFunctions.instance;
 
   Future _sendMessage(bool currentState) async {
     try {
-      await FirebaseFunctions.instance
+      await _firebaseFunctions
           .httpsCallable('notifyTopic')
           .call(<String, dynamic>{
         "messageTopic": "TLDR",
