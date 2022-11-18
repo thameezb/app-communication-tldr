@@ -1,8 +1,11 @@
+import 'package:app_communication_tldr/database_service.dart';
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_toggle_switch/animated_toggle_switch.dart';
 import 'firebase_options.dart';
+
+DBService _dbService = DBService();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -40,6 +43,16 @@ class _MyHomePageState extends State<MyHomePage> {
   bool currentState = false;
   final _firebaseFunctions = FirebaseFunctions.instance;
 
+  void _updateDB(bool currentState) {
+    try {
+      _dbService.refCurrentState.set(_getText(currentState));
+    } on FirebaseException catch (error) {
+      print(error.code);
+      print(error.plugin);
+      print(error.message);
+    }
+  }
+
   Future _sendMessage(bool currentState) async {
     try {
       await _firebaseFunctions
@@ -57,6 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _update(bool value) {
+    _updateDB(value);
     _sendMessage(value);
     setState(() {
       currentState = value;
