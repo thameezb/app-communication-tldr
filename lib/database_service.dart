@@ -1,6 +1,17 @@
 import 'package:firebase_database/firebase_database.dart';
 
 class DBService {
-  final DatabaseReference refCurrentState =
-      FirebaseDatabase.instance.ref('currentState');
+  late final DatabaseReference refCurrentState;
+  late String _initialState;
+
+  Future init() async {
+    refCurrentState = FirebaseDatabase.instance.ref('currentState');
+
+    DataSnapshot cs = await refCurrentState.get();
+    _initialState = cs.value.toString();
+  }
+
+  String getInitialState() {
+    return _initialState;
+  }
 }

@@ -1,3 +1,4 @@
+import 'package:app_communication_tldr/auth_service.dart';
 import 'package:app_communication_tldr/database_service.dart';
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -6,12 +7,17 @@ import 'package:animated_toggle_switch/animated_toggle_switch.dart';
 import 'firebase_options.dart';
 
 DBService _dbService = DBService();
+AuthService _authService = AuthService();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+  await _authService.init();
+  await _dbService.init();
+
   runApp(const MyApp());
 }
 
@@ -40,8 +46,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  bool currentState = false;
   final _firebaseFunctions = FirebaseFunctions.instance;
+  bool currentState = _dbService.getInitialState() == 'Let me Rant!';
 
   void _updateDB(bool currentState) async {
     try {
