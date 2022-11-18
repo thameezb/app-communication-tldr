@@ -43,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
   bool currentState = false;
   final _firebaseFunctions = FirebaseFunctions.instance;
 
-  void _updateDB(bool currentState) {
+  void _updateDB(bool currentState) async {
     try {
       _dbService.refCurrentState.set(_getText(currentState));
     } on FirebaseException catch (error) {
