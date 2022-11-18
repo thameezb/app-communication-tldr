@@ -16,6 +16,12 @@ A simple JS application which uses the Firebase Message library to send a messag
 
 My fiancée/wife wanted an easy way to let me know if she was ranting or actually wanted to hear solutions...do I need to say more?
 
+## Screenshots
+
+![Solutions Please](./assets/screenshots/solutionsPlease.png)
+
+![Let Me Rant](./assets/screenshots/letMeRant.png)
+
 ## Notification App
 
 The code for the receiver app can be found [app-communication-tldr-notifier](https://github.com/thameezb/app-communication-tldr-notifier/blob/main/README.md)
